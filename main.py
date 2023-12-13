@@ -26,11 +26,10 @@ title = "موثق البرامج"
 icon = "logo.ico"
 desktopPath = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 def is_admin():
-    # try:
-    #     return ctypes.windll.shell32.IsUserAnAdmin()
-    # except:
-    #     return False
-    return True
+     try:
+         return ctypes.windll.shell32.IsUserAnAdmin()
+     except:
+         return False
 if is_admin():
     class LineEditDelegate(QItemDelegate):
         def createEditor(self, parent, option, index):
